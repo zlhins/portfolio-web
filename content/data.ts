@@ -166,7 +166,7 @@ principles: [
   {
     id: "kasir-bva-intern",
     role: "Software Developer Intern",
-    organization: "Apartment Property Management (Confidential)",
+    organization: "Apartment Property Management",
     duration: "Jan 2026 – Feb 2026",
     description:
       "Developed an apartment operations and billing system to support daily operational processes and automate monthly billing activities, helping reduce repetitive administrative work through practical software solutions.",
