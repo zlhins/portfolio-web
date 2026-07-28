@@ -109,9 +109,14 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
                 </ul>
               </div>
 
-              <h4 className="text-lg text-zinc-950">The Problems</h4>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
-                {context.problemStatements.map((prob, i) => <li key={i} className="text-sm">{prob}</li>)}
+              <h4 className="text-lg text-zinc-950 mb-4">The Problems</h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5 not-prose mb-8">
+                {context.problemStatements.map((prob, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-zinc-600">
+                    <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 shrink-0" />
+                    <span className="leading-relaxed">{prob}</span>
+                  </li>
+                ))}
               </ul>
 
               {/* 2. System Design Layer */}

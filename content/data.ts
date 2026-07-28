@@ -97,6 +97,10 @@ export interface SmallProject {
 // PORTFOLIO DATA
 // ==========================================
 
+// ==========================================
+// PORTFOLIO DATA
+// ==========================================
+
 export const portfolioData = {
   hero: {
     headline: "Informatics Graduate building practical software through structured problem solving.",
@@ -274,8 +278,8 @@ principles: [
       meta: {
         title: "Apartment Operations & Billing System",
         category: "Full-Stack Web Application",
-        technologies: ["Laravel", "MySQL", "SMTP Email", "Baileys (WA)", "PDF Generator"],
-        shortDescription: "Sistem ERP mikro (Kasir BVA) untuk mendigitalisasi operasional apartemen, mengotomatisasi siklus pembuatan invoice via Email, dan distribusi kwitansi via WhatsApp.",
+        technologies: ["Laravel", "MySQL", "SMTP Email", "Baileys (WA)", "PDF & Excel Generator"],
+        shortDescription: "Sistem ERP mikro (Kasir BVA) untuk mendigitalisasi operasional apartemen, mengotomatisasi siklus pembuatan invoice via Email, distribusi kwitansi via WhatsApp, dan laporan keuangan harian.",
       },
       atAGlance: {
         projectType: "Operational Management System",
@@ -284,30 +288,30 @@ principles: [
         teamSize: "Individual",
         status: "Production",
         primaryTechnologies: ["PHP", "Laravel", "MySQL", "SMTP"],
-        keyFeatures: ["Bulk Email Invoice", "WA Receipt Delivery", "PDF Generation", "Billing Dashboard"],
+        keyFeatures: ["Bulk Email Invoice", "WA Receipt Delivery", "PDF Generation", "Automated Excel Reports"],
         biggestChallenge: "Mengubah kebiasaan kerja staf dari memproses dokumen fisik (Excel & Print) menjadi alur kerja digital yang sepenuhnya terotomatisasi.",
-        biggestImpact: "Memangkas proses pembuatan dan pengiriman Invoice bulanan dari berhari-hari menjadi hitungan jam (~10 menit per batch harian).",
+        biggestImpact: "Memangkas proses pembuatan dan pengiriman Invoice bulanan serta pembuatan laporan harian dari berjam-jam menjadi hitungan menit.",
         whatILearned: "Engineering yang baik adalah yang berhasil mengurangi beban manual penggunanya, bukan sekadar menggunakan teknologi paling rumit."
       },
       context: {
         businessContext: "Why this project mattered: The project focused on reducing repetitive administrative work in the monthly billing cycle, allowing staff to spend less time on repetitive document handling and more time on operational tasks. Sebelum sistem ini, seluruh manajemen keuangan dan komunikasi penghuni apartemen dilakukan secara terfragmentasi.",
         businessValues: [
           "Mengurangi pekerjaan manual secara signifikan dalam siklus bulanan.",
+          "Mempermudah proses audit harian dengan pembuatan laporan keuangan secara instan.",
           "Mengurangi penggunaan dokumen fisik (Paperless).",
-          "Mempercepat distribusi tagihan (Invoice) dan bukti pembayaran (Kwitansi).",
-          "Mengurangi kebutuhan tenaga administrasi untuk memproses data berulang."
+          "Mempercepat distribusi tagihan (Invoice) dan bukti pembayaran (Kwitansi)."
         ],
         problemStatements: [
           "Pembuatan invoice dan kwitansi format PDF dilakukan satu per satu via Excel secara manual.",
           "Email tagihan dikirim satu per satu kepada penghuni.",
-          "Kwitansi dicetak secara fisik (print) dan dibagikan manual.",
+          "Staf harus merekap ulang data pembayaran ke file Excel baru setiap sore untuk laporan harian.",
           "Status verifikasi pembayaran dicek dan direkap secara manual tanpa dashboard terpusat.",
           "Siklus penagihan bulanan sangat menyita waktu (time-consuming)."
         ],
         objectives: [
           "Mendigitalisasi dan mengotomatisasi siklus penagihan bulanan (Invoice & Kwitansi).",
           "Mempercepat distribusi dokumen dengan pemisahan jalur: Bulk Email untuk Invoice, WhatsApp untuk Kwitansi.",
-          "Memusatkan database operasional agar mudah ditelusuri."
+          "Menyediakan fitur unduh laporan keuangan harian (Excel) dengan satu klik."
         ]
       },
       systemDesign: {
@@ -318,13 +322,13 @@ principles: [
         majorFeatures: [
           "Operational: Resident & Unit Management",
           "Operational: Billing & Payment Recording",
-          "Operational: Dashboard, Search, & History Tracking",
           "Automation: Automatic PDF Document Generation",
           "Automation: Bulk Email Distribution (Invoice)",
-          "Automation: 1-Click WhatsApp Delivery (Receipt)"
+          "Automation: 1-Click WhatsApp Delivery (Receipt)",
+          "Automation: 1-Click Daily Financial Excel Report"
         ],
         architectureNarrative: "Sistem dibangun menggunakan arsitektur Monolith berbasis Laravel. Proses difokuskan pada dua jalur otomatisasi utama: (1) HTML di-render menjadi PDF di backend, lalu didistribusikan melalui Bulk Email SMTP untuk pengiriman Invoice massal; dan (2) Integrasi Baileys WA API sebagai kanal tambahan khusus untuk mengirimkan Kwitansi pembayaran secara instan tanpa perlu mencetak dokumen fisik.",
-        databaseDesignNarrative: "Database dirancang untuk mengelola entitas operasional utama (Penghuni, Unit, Tagihan). Fokus desain data adalah memastikan relasi antar tabel memudahkan penarikan laporan bulanan secara cepat."
+        databaseDesignNarrative: "Database dirancang untuk mengelola entitas operasional utama (Penghuni, Unit, Tagihan). Fokus desain data adalah memastikan relasi antar tabel memudahkan penarikan laporan operasional secara cepat."
       },
       engineering: {
         requirementGathering: "Proses engineering berjalan sangat iteratif. Alurnya: Saya berdiskusi dengan pengguna -> Menemukan keluhan dan akar masalah -> Mencari solusi teknis -> Membuat fitur awal -> Pengguna mencobanya langsung -> Memberikan masukan perubahan -> Saya melakukan perbaikan -> Deploy ulang. Siklus ini berulang hingga sistem benar-benar sesuai dengan kenyataan lapangan.",
@@ -340,6 +344,10 @@ principles: [
           {
             technology: "Baileys (WhatsApp API)",
             reason: "Diposisikan sebagai kanal distribusi TAMBAHAN yang difokuskan untuk pengiriman Kwitansi pembayaran agar penghuni mendapat notifikasi cepat (paperless)."
+          },
+          {
+            technology: "Excel Generator",
+            reason: "Format Excel adalah standar baku yang diminta manajemen. Fitur ini memungkinkan staf mengunduh rekap harian yang sudah terformat rapi (siap print/kirim) dengan satu klik, menghilangkan potensi salah ketik (human error) saat rekap manual."
           }
         ],
         challengesAndSolutions: [
@@ -354,6 +362,7 @@ principles: [
         impactMetrics: [
           { metric: "Invoice Process", before: "Excel -> Convert PDF -> Email satu per satu (3 orang, berhari-hari)", after: "Generate otomatis -> Bulk Email (1 orang, ±10 menit kerja/hari, selesai ~2 hari)" },
           { metric: "Receipt Process", before: "Excel -> Print -> Bagikan fisik secara manual", after: "Generate otomatis -> Klik kirim -> WhatsApp (Tanpa print fisik)" },
+          { metric: "Daily Reporting", before: "Rekap data manual ke file Excel baru setiap sore", after: "1-Click Download Excel dengan format baku" },
           { metric: "Operational Impact", before: "Beban kerja administratif tinggi & boros kertas", after: "Mengurangi pekerjaan manual & mempercepat operasional bulanan" }
         ],
         reflection: "Melalui proyek ini, saya menyadari bahwa nilai terbesar dari sebuah software bukanlah pada seberapa kompleks teknologinya, melainkan pada kemampuannya mengembalikan waktu yang hilang akibat pekerjaan repetitif, sehingga pengguna bisa fokus pada tugas operasional yang lebih penting."
