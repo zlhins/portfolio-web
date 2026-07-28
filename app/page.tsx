@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import PrinciplesSection from "@/components/PrinciplesSection";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import AboutSection from "@/components/AboutSection";
+import BackgroundSection from "@/components/BackgroundSection";
 import JourneySection from "@/components/JourneySection";
 import SkillsSection from "@/components/SkillsSection";
 import Footer from "@/components/Footer";
@@ -103,6 +104,8 @@ export default function Home() {
         </section>
 
         <AboutSection />
+
+        <BackgroundSection />
         
         <JourneySection />
 

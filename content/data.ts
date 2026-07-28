@@ -93,9 +93,20 @@ export interface SmallProject {
   link?: string;
 }
 
-// ==========================================
-// PORTFOLIO DATA
-// ==========================================
+export interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  period: string;
+  description: string;
+}
+
+export interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  date: string;
+}
 
 // ==========================================
 // PORTFOLIO DATA
@@ -105,39 +116,85 @@ export const portfolioData = {
   hero: {
     headline: "Informatics Graduate building practical software through structured problem solving.",
     subheadline: "I enjoy translating operational bottlenecks into practical, easy-to-use software solutions. Focused on clarity, data modeling, and developing reliable systems.",
+    location: "West Java, Indonesia",
+    availability: "Open to Work (On-site & Remote)"
   },
   
   about: {
-  text: "During university, I worked on academic projects and contributed to a real-world web application used in daily operations. These experiences strengthened my interest in understanding how systems work, improving operational processes, and building software that reduces repetitive work through practical and reliable solutions.",
+    text: "During university, I worked on academic projects and contributed to a real-world web application used in daily operations. These experiences strengthened my interest in understanding how systems work, improving operational processes, and building software that reduces repetitive work through practical and reliable solutions.",
+    philosophy: "Before writing code, I prefer to understand how users work, where the bottlenecks are, and what actually needs to be improved. I believe technology creates the most value when it solves real operational problems with solutions that are simple, reliable, and easy to maintain."
+  },
 
-  philosophy: "Before writing code, I prefer to understand how users work, where the bottlenecks are, and what actually needs to be improved. I believe technology creates the most value when it solves real operational problems with solutions that are simple, reliable, and easy to maintain."
-},
-
-principles: [
+  education: [
   {
-    title: "Technology should solve real problems",
-    description: "Technology is valuable when it addresses real operational challenges and improves the way people work."
-  },
-  {
-    title: "Understand before building",
-    description: "I prefer learning how users work and identifying bottlenecks before designing a technical solution."
-  },
-  {
-    title: "Keep solutions practical",
-    description: "I value solutions that are reliable, easy to maintain, and focused on solving the problem without unnecessary complexity."
-  },
-  {
-    title: "Learn through iteration",
-    description: "Good software evolves through testing, feedback, and continuous improvement rather than trying to be perfect from the start."
+    id: "edu-unsika",
+    institution: "Universitas Singaperbangsa Karawang (UNSIKA)",
+    degree: "Bachelor of Computer Science (S1)",
+    period: "2022 – 2026",
+    description:
+      "Focused on information systems, software engineering, database management, and data analysis. Developed software projects and applied machine learning methods using Python and LightGBM for undergraduate research. Managed website administration for the university's Master's Program in Physical Education and actively participated in the UNSIKA Karate Club."
   }
-],
+] as Education[],
+
+  certifications: [
+    {
+      id: "cert-komdigi-dl",
+      name: "Fundamental Deep Learning (44 JP)",
+      issuer: "Kementerian Komdigi",
+      date: "August 2025"
+    },
+    {
+      id: "cert-dqlab-python-fundamental",
+      name: "Python Fundamental for Data Science",
+      issuer: "DQLab",
+      date: "August 2025"
+    },
+    {
+      id: "cert-dqlab-ds-intro",
+      name: "Introduction to Data Science with Python",
+      issuer: "DQLab",
+      date: "August 2025"
+    },
+    {
+      id: "cert-dibimbing-web",
+      name: "Web Development Series 14.0",
+      issuer: "dibimbing.id",
+      date: "March 2026"
+    },
+    {
+      id: "cert-dicoding-laravel",
+      name: "DevCoach 230: Web | Is Laravel dead?",
+      issuer: "Dicoding Indonesia",
+      date: "March 2026"
+    }
+  ] as Certification[],
+
+  principles: [
+    {
+      title: "Technology should solve real problems",
+      description: "Technology is valuable when it addresses real operational challenges and improves the way people work."
+    },
+    {
+      title: "Understand before building",
+      description: "I prefer learning how users work and identifying bottlenecks before designing a technical solution."
+    },
+    {
+      title: "Keep solutions practical",
+      description: "I value solutions that are reliable, easy to maintain, and focused on solving the problem without unnecessary complexity."
+    },
+    {
+      title: "Learn through iteration",
+      description: "Good software evolves through testing, feedback, and continuous improvement rather than trying to be perfect from the start."
+    }
+  ],
   
   skills: {
     core: ["PHP", "Laravel", "JavaScript", "MySQL", "SQL", "Git", "GitHub"],
-    workingKnowledge: ["React", "Python", "Pandas", "Machine Learning", "Tailwind CSS", "REST API", "VS Code", "Postman"],
-    learning: ["Next.js", "TypeScript", "Node.js"]
+    workingKnowledge: ["React", "Next.js", "Python", "Pandas", "Machine Learning", "Tailwind CSS", "REST API", "VS Code", "Postman"],
+    learning: ["TypeScript", "Node.js"],
+    languages: ["Indonesian (Native)", "English (Professional Working)"]
   },
-  
+
   journey: [
   {
     year: "2022",
