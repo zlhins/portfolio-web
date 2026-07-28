@@ -116,9 +116,18 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
 
               {/* 2. System Design Layer */}
               <hr className="my-10" />
-              <h2 className="text-2xl text-zinc-950 mb-4">2. System Scope & Architecture</h2>
-              <p><strong>Architecture Narrative:</strong> {systemDesign.architectureNarrative}</p>
-              <p><strong>Database Design:</strong> {systemDesign.databaseDesignNarrative}</p>
+              <h2 className="text-2xl text-zinc-950 mb-6">2. System Scope & Architecture</h2>
+
+                <div className="flex flex-col gap-5 text-zinc-600 leading-relaxed">
+                <p>
+                    <strong className="text-zinc-950 font-semibold mr-1">Architecture Narrative:</strong> 
+                    {systemDesign.architectureNarrative}
+                </p>
+                <p>
+                    <strong className="text-zinc-950 font-semibold mr-1">Database Design:</strong> 
+                    {systemDesign.databaseDesignNarrative}
+                </p>
+                </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8 not-prose">
                 <div>
