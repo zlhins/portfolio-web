@@ -513,6 +513,97 @@ principles: [
         ],
         reflection: "Sebagai kontributor dalam pembersihan data, saya belajar bahwa mengkomunikasikan inkonsistensi data kepada tim jauh lebih krusial daripada langsung melompat membuat grafik visual."
       }
+    },
+
+    {
+      id: "eleven-hotel-scrum",
+      isFeatured: true,
+      meta: {
+        title: "Eleven Hotel Management & Booking Engine",
+        category: "Agile Project Management & Full-Stack",
+        technologies: ["Next.js", "Tailwind CSS", "Sanity CMS", "Stripe", "NextAuth"],
+        shortDescription: "Aplikasi manajemen reservasi hotel berbasis Next.js dengan integrasi headless CMS (Sanity) dan payment gateway (Stripe), dikembangkan oleh tim berskala besar menggunakan metodologi Scrum.",
+        repositoryUrl: "https://github.com/anthrofax/eleven_hotel"
+      },
+      atAGlance: {
+        projectType: "Full-Stack Web Application",
+        duration: "3 Sprints",
+        role: "Scrum Master & Developer",
+        teamSize: "11 People",
+        status: "Academic",
+        primaryTechnologies: ["React", "Next.js", "Sanity", "Stripe API"],
+        keyFeatures: ["Booking Engine", "Admin Dashboard (CRUD)", "Stripe Payment", "Dark Mode", "Advanced Filtering"],
+        biggestChallenge: "Mensinkronisasikan 11 kepala developer dengan kemampuan teknis berbeda agar tetap selaras dengan Product Backlog dan tenggat waktu rilis Sprint.",
+        biggestImpact: "Berhasil mendelegasikan dan mengawal eksekusi seluruh Product Backlog dalam 3 Sprint terstruktur, menghasilkan aplikasi full-stack yang terintegrasi secara fungsional.",
+        whatILearned: "Keberhasilan sebuah software tidak hanya bergantung pada teknologi yang digunakan, melainkan pada kejelasan komunikasi, pembagian tugas yang tepat, dan disiplin metodologi (Agile/Scrum)."
+      },
+      context: {
+        businessContext: "Industri perhotelan modern membutuhkan sistem yang tidak hanya mengelola inventaris kamar (sisi Admin) tetapi juga memberikan pengalaman pemesanan yang mulus bagi tamu (sisi Klien). Proyek ini mensimulasikan pengembangan produk komersial tersebut dari nol.",
+        businessValues: [
+          "Mendigitalisasi seluruh alur reservasi kamar dan layanan tambahan (laundry, meals, dll).",
+          "Menyediakan dashboard administratif untuk pemantauan ketersediaan kamar secara real-time.",
+          "Menerapkan sistem pembayaran terintegrasi untuk konfirmasi instan."
+        ],
+        problemStatements: [
+          "Bagaimana membangun sistem reservasi end-to-end dengan fitur yang kompleks (autentikasi, CMS, payment gateway) dalam waktu akademik yang terbatas?",
+          "Bagaimana mengelola dan memastikan 11 anggota tim developer dapat bekerja secara paralel tanpa saling menimpa kode (code conflicts) atau kehilangan arah?"
+        ],
+        objectives: [
+          "Menerapkan kerangka kerja Scrum secara disiplin (Daily Stand-up, Sprint Review) untuk menjaga ritme kerja tim.",
+          "Mengembangkan aplikasi berbasis JAMstack (Next.js + Sanity) untuk performa dan skalabilitas tinggi.",
+          "Mengamankan jalur transaksi digital menggunakan ekosistem Stripe."
+        ]
+      },
+      systemDesign: {
+        modules: [
+          "User Authentication (NextAuth)", 
+          "Room Catalog & Search Engine", 
+          "Booking & Checkout Transaction", 
+          "Additional Services Routing",
+          "Admin Content Management System"
+        ],
+        majorFeatures: [
+          "Client: Real-time Room Filtering & Sorting",
+          "Client: Stripe Payment Integration",
+          "Client: Dynamic UI (Light/Dark Mode)",
+          "Admin: Create, Read, Update, Delete (CRUD) Room Data via Sanity Studio"
+        ],
+        architectureNarrative: "Aplikasi diarsiteki dengan pendekatan pemisahan (decoupled) antara frontend dan backend. Antarmuka dibangun interaktif menggunakan React/Next.js dan Tailwind CSS. Alih-alih membuat backend monolitik, sistem memanfaatkan Sanity sebagai Headless CMS untuk mengelola skema relasional (User, Kamar, Booking, Layanan Tambahan) secara on-the-fly, dipadukan dengan webhook Stripe untuk validasi pembayaran.",
+        databaseDesignNarrative: "Skema data didesain terdistribusi. Data pengguna diatur melalui NextAuth, data operasional (kamar, ulasan, transaksi) direpresentasikan sebagai dokumen JSON dinamis di Sanity, memungkinkan admin hotel melakukan perubahan data tanpa menyentuh source code."
+      },
+      engineering: {
+        requirementGathering: "Sebagai Scrum Master, fokus utama saya adalah rekayasa proses. Saya menerjemahkan visi produk ke dalam Use Case dan Class Diagram, lalu memecahnya menjadi Product Backlog yang terukur. Pekerjaan didistribusikan ke dalam 3 Sprint iteratif: (1) UI/UX & Setup Basis Data, (2) Autentikasi & Core Backend, dan (3) Integrasi Pembayaran & Finalisasi Fitur.",
+        techDecisions: [
+          {
+            technology: "Agile / Scrum Framework",
+            reason: "Satu-satunya cara rasional untuk mengelola tim beranggotakan 11 orang. Sprint backlog harian menjaga setiap anggota tim memiliki akuntabilitas dan blokade (blockers) teknis bisa segera diatasi."
+          },
+          {
+            technology: "Sanity (Headless CMS)",
+            reason: "Menghilangkan kebutuhan untuk membangun infrastruktur backend dan UI Admin dari awal, memungkinkan tim fokus pada logika bisnis frontend dan integrasi API."
+          },
+          {
+            technology: "Stripe API",
+            reason: "Standar industri untuk Payment Gateway. Mudah diintegrasikan dengan lingkungan Next.js dan menyediakan environment testing yang aman untuk transaksi simulasi."
+          }
+        ],
+        challengesAndSolutions: [
+          {
+            challenge: "Kolaborasi dan Manajemen Repositori (Git) pada tim berskala 11 orang.",
+            solution: "Menegakkan disiplin version control dan membagi tim ke dalam modul spesifik (Frontend Auth, UI Components, Backend Query) agar proses merge tidak saling berbenturan."
+          }
+        ]
+      },
+      outcomes: {
+        businessResults: "Tim berhasil mendemonstrasikan sebuah Minimum Viable Product (MVP) sistem manajemen hotel yang stabil, aman, dan siap pakai. Proyek ini membuktikan bahwa manajemen operasional yang baik sama pentingnya dengan kode yang efisien.",
+        impactMetrics: [
+          { metric: "Project Delivery", before: "Ide konseptual berskala besar", after: "Dirilis tepat waktu dalam 3 Sprint" },
+          { metric: "Team Velocity", before: "Risiko bottleneck kerja karena 11 anggota", after: "Pendelegasian tugas merata berdasarkan sprint backlog" },
+          { metric: "Technical Implementation", before: "Data statis", after: "Fully integrated Headless CMS & Live Payment Gateway" }
+        ],
+        reflection: "Menjadi Scrum Master menyadarkan saya bahwa hambatan terbesar dalam rekayasa perangkat lunak berskala menengah-besar bukanlah pada penulisan sintaks kode, melainkan pada manajemen manusia, sinkronisasi ekspektasi, dan memastikan seluruh tim berjalan ke arah arsitektur yang sama."
+      }
     }
+
   ] as ProjectCaseStudy[]
 };
