@@ -22,8 +22,8 @@ export default function Header() {
             <Link href="#journey" className="text-sm text-zinc-600 hover:text-zinc-950 transition-colors">
               Journey
             </Link>
-            <Link href="mailto:emailmu@domain.com" className="text-sm text-zinc-600 hover:text-zinc-950 transition-colors">
-              Contact
+            <Link href="#contact" className="text-sm font-medium text-zinc-600 hover:text-zinc-950">
+            Contact
             </Link>
           </nav>
         </div>

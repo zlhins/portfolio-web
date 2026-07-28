@@ -4,18 +4,18 @@ import { ArrowRight } from "lucide-react";
 interface CaseStudyCardProps {
   id: string;
   title: string;
-  type: string;
+  category: string;
   summary: string;
-  focus: string[];
+  technologies: string[];
 }
 
-export default function CaseStudyCard({ id, title, type, summary, focus }: CaseStudyCardProps) {
+export default function CaseStudyCard({ id, title, category, summary, technologies }: CaseStudyCardProps) {
   return (
     <Link href={`/projects/${id}`} className="group block">
       <div className="p-8 border border-zinc-200 rounded-xl bg-zinc-50 hover:bg-white transition-colors duration-300">
         <div className="mb-4">
           <span className="text-xs font-mono text-zinc-500 bg-zinc-200/50 px-2 py-1 rounded">
-            {type}
+            {category}
           </span>
         </div>
         
@@ -28,7 +28,7 @@ export default function CaseStudyCard({ id, title, type, summary, focus }: CaseS
         </p>
         
         <div className="flex flex-wrap gap-2 mb-8">
-          {focus.map((item, index) => (
+          {technologies.map((item, index) => (
             <span key={index} className="text-xs text-zinc-500 border border-zinc-200 px-2 py-1 rounded-full">
               {item}
             </span>

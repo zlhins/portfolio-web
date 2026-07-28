@@ -10,7 +10,7 @@ export default function HeroSection() {
   const { hero } = portfolioData;
 
   return (
-    <section className="pt-40 pb-20">
+    <section className="pt-16 md:pt-24 pb-20 flex flex-col justify-center min-h-[70vh]">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 8 }}
@@ -28,7 +28,7 @@ export default function HeroSection() {
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="#projects"
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-slate-800 transition-colors"
             >
               View Case Studies
               <ArrowRight className="w-4 h-4" />

@@ -2,10 +2,14 @@ import { Container } from "./ui/Container";
 import Link from "next/link";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="py-12 border-t border-zinc-200 bg-zinc-50">
+    // 1. Tambahkan id="contact" di tag footer ini
+    <footer id="contact" className="py-12 border-t border-zinc-200 bg-zinc-50">
       <Container>
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          
           <div>
             <p className="text-sm font-medium text-zinc-950">Siti Zulhi Nirma S</p>
             <p className="text-xs text-zinc-500 mt-1">
@@ -13,28 +17,41 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center gap-6">
-            <Link
-              href="https://github.com/zlhins"
-              target="_blank"
-              className="text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors"
-            >
-              GitHub
-            </Link>
-            <Link
-              href="https://linkedin.com/in/sitizulhins"
-              target="_blank"
-              className="text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors"
-            >
-              LinkedIn
-            </Link>
-            <Link
-              href="mailto:st.zulhins@gmail.com"
-              className="text-xs font-mono text-blue-600 hover:text-blue-700 transition-colors"
-            >
-              Email
-            </Link>
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+            <div className="flex items-center gap-6">
+              <Link
+                href="https://github.com/zlhins"
+                target="_blank"
+                className="text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors"
+              >
+                GitHub
+              </Link>
+              <Link
+                href="https://linkedin.com/in/sitizulhins"
+                target="_blank"
+                className="text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors"
+              >
+                LinkedIn
+              </Link>
+              {/* 2. Warna biru diubah menjadi zinc di sini */}
+              <Link
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=st.zulhins@gmail.com" 
+                target="_blank"   
+                className="text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors"
+              >
+                Email
+              </Link>
+            </div>
+            
+            {/* 3. Garis pemisah vertikal (hanya muncul di layar besar) */}
+            <span className="hidden md:inline-block text-zinc-300">|</span>
+            
+            {/* 4. Teks Hak Cipta Dinamis */}
+            <p className="text-xs font-mono text-zinc-400">
+              © {currentYear}
+            </p>
           </div>
+
         </div>
       </Container>
     </footer>
