@@ -66,12 +66,12 @@ export default function CaseStudyCard({
             </a>
           )}
 
-          {repositoryUrl && (
+          {/* {repositoryUrl && (
             <a href={repositoryUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-950 transition-colors">
               <ExternalLink className="w-3.5 h-3.5" />
               <span>Repository</span>
             </a>
-          )}
+          )} */}
 
           {/* Tombol Drawer (Hanya muncul jika ada array gambar) */}
           {demoImages && demoImages.length > 0 && (
