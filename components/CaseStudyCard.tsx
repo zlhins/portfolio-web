@@ -96,15 +96,20 @@ export default function CaseStudyCard({
                 {demoImages.map((img, index) => (
                   <div 
                     key={index} 
-                    // Hanya atur tinggi (h-...). Lebar akan mengikuti gambar aslinya.
-                    // max-w-[85vw] memastikan gambar sangat lebar tidak merusak layar HP.
-                    className="relative h-[220px] sm:h-[280px] lg:h-[340px] max-w-[85vw] md:max-w-none bg-white rounded-xl border border-zinc-200/70 shadow-sm snap-start shrink-0 p-2 sm:p-3"
+                    // PENGGABUNGAN 3 ATURAN:
+                    // 1. HP: w-[85vw] h-auto 
+                    // 2. Tablet: sm:w-auto sm:h-[260px] md:h-[300px]
+                    // 3. Laptop: lg:min-w-[45%] lg:h-[300px] lg:flex lg:items-center lg:justify-center
+                    className="relative bg-white rounded-xl border border-zinc-200/70 shadow-sm snap-start shrink-0 p-3 sm:p-4 w-[85vw] h-auto sm:w-auto sm:h-[260px] md:h-[300px] lg:min-w-[45%] lg:flex lg:items-center lg:justify-center"
                   >
                     <img 
                       src={img} 
                       alt={`${title} Interface ${index + 1}`}
-                      // KUNCI UTAMA: h-full dan w-auto memastikan gambar mempertahankan proporsinya tanpa ruang kosong (blank)
-                      className="h-full w-auto max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer rounded-md"
+                      // PENYESUAIAN GAMBAR:
+                      // 1. HP: w-full h-auto (Menghindari blank atas/bawah)
+                      // 2. Tablet: sm:w-auto sm:h-full (Memeluk gambar kiri/kanan)
+                      // 3. Laptop: lg:w-full lg:h-full lg:object-top (Persis kode ideal Anda)
+                      className="grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer object-contain w-full h-auto sm:w-auto sm:h-full lg:w-full lg:h-full lg:object-top"
                     />
                   </div>
                 ))}
