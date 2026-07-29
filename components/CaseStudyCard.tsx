@@ -96,13 +96,15 @@ export default function CaseStudyCard({
                 {demoImages.map((img, index) => (
                   <div 
                     key={index} 
-                    // PERUBAHAN: Lebar (min-w) dan tinggi (h) diperkecil agar gambar kedua terlihat mengintip di sebelah kanan
-                    className="relative min-w-[75%] sm:min-w-[60%] md:min-w-[50%] lg:min-w-[45%] h-[200px] sm:h-[260px] md:h-[300px] bg-white rounded-xl border border-zinc-200/70 shadow-sm snap-start shrink-0 p-3 sm:p-4 flex items-center justify-center"
+                    // Hanya atur tinggi (h-...). Lebar akan mengikuti gambar aslinya.
+                    // max-w-[85vw] memastikan gambar sangat lebar tidak merusak layar HP.
+                    className="relative h-[220px] sm:h-[280px] lg:h-[340px] max-w-[85vw] md:max-w-none bg-white rounded-xl border border-zinc-200/70 shadow-sm snap-start shrink-0 p-2 sm:p-3"
                   >
                     <img 
                       src={img} 
                       alt={`${title} Interface ${index + 1}`}
-                      className="w-full h-full object-contain object-top grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer"
+                      // KUNCI UTAMA: h-full dan w-auto memastikan gambar mempertahankan proporsinya tanpa ruang kosong (blank)
+                      className="h-full w-auto max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer rounded-md"
                     />
                   </div>
                 ))}
