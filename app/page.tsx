@@ -37,6 +37,11 @@ export default function Home() {
                   category={project.meta.category}
                   summary={project.meta.shortDescription}
                   technologies={project.meta.technologies}
+                  
+                  // Pastikan ketiganya tertulis seperti ini
+                  liveUrl={project.meta.liveUrl}
+                  repositoryUrl={project.meta.repositoryUrl}
+                  demoImages={project.meta.demoImages} 
                 />
               ))}
             </div>

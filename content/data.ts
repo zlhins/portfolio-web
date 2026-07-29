@@ -43,6 +43,8 @@ export interface ProjectCaseStudy {
     technologies: string[];
     shortDescription: string;
     repositoryUrl?: string;
+    liveUrl?: string;    
+    demoImages?: string[];
   };
 
   atAGlance: ProjectAtAGlance;
@@ -337,6 +339,14 @@ export const portfolioData = {
         category: "Full-Stack Web Application",
         technologies: ["Laravel", "MySQL", "SMTP Email", "Baileys (WA)", "PDF & Excel Generator"],
         shortDescription: "Sistem ERP mikro (Kasir BVA) untuk mendigitalisasi operasional apartemen, mengotomatisasi siklus pembuatan invoice via Email, distribusi kwitansi via WhatsApp, dan laporan keuangan harian.",
+        
+        // TEMPLATE DUMMY ARRAY
+        demoImages: [
+          "/images/dashboard.png", 
+          "/images/billing.png",
+          "/images/pembayaran.png",
+          "/images/laporan.png",
+        ],
       },
       atAGlance: {
         projectType: "Operational Management System",
@@ -433,6 +443,7 @@ export const portfolioData = {
         category: "Data Analytics & ML",
         technologies: ["Python", "NetworkX", "LightGBM", "Pandas"],
         shortDescription: "Evaluasi kerentanan 94 active stations in DAOP 1 menggunakan pendekatan Graph Embedding dan algoritma Machine Learning prediktif.",
+        liveUrl: "https://colab.research.google.com/drive/1RbzrzWXb5XSt8vzv6-M8I4DhT8TBoGJG?usp=sharing",  
       },
       atAGlance: {
         projectType: "Data Pipeline & Predictive Modeling",
@@ -511,6 +522,7 @@ export const portfolioData = {
         category: "Data Visualization & EDA",
         technologies: ["Python", "Pandas", "Matplotlib"],
         shortDescription: "Eksplorasi Data Analisis (EDA) kolaboratif untuk memetakan tren temporal dan spasial dari dataset kriminalitas kota Los Angeles.",
+        liveUrl: "https://colab.research.google.com/drive/1smuPRnKNXHipa5OueG4E8vCROPTTfZLD?usp=sharing",
       },
       atAGlance: {
         projectType: "Data Visualization Pipeline",
@@ -580,7 +592,8 @@ export const portfolioData = {
         category: "Agile Project Management & Full-Stack",
         technologies: ["Next.js", "Tailwind CSS", "Sanity CMS", "Stripe", "NextAuth"],
         shortDescription: "Aplikasi manajemen reservasi hotel berbasis Next.js dengan integrasi headless CMS (Sanity) dan payment gateway (Stripe), dikembangkan oleh tim berskala besar menggunakan metodologi Scrum.",
-        repositoryUrl: "https://github.com/anthrofax/eleven_hotel"
+        repositoryUrl: "https://github.com/anthrofax/eleven_hotel",
+        liveUrl: "https://eleven-hotel.vercel.app/"
       },
       atAGlance: {
         projectType: "Full-Stack Web Application",
