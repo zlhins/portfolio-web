@@ -518,69 +518,77 @@ export const portfolioData = {
       id: "la-crime-dashboard",
       isFeatured: true,
       meta: {
-        title: "LA Crime Data Analytics Dashboard",
+        // REVISI 1: Menghilangkan kata "Dashboard" dan menggantinya dengan "EDA & Data Wrangling"
+        title: "LA Crime Data Wrangling & EDA", 
         category: "Data Visualization & EDA",
-        technologies: ["Python", "Pandas", "Matplotlib"],
-        shortDescription: "Eksplorasi Data Analisis (EDA) kolaboratif untuk memetakan tren temporal dan spasial dari dataset kriminalitas kota Los Angeles.",
+        technologies: ["Python", "Pandas", "Matplotlib", "Jupyter/Colab"],
+        shortDescription: "Eksplorasi Data Analisis (EDA) kolaboratif berbasis notebook untuk memetakan tren temporal dan spasial dari dataset kriminalitas kota Los Angeles.",
         liveUrl: "https://colab.research.google.com/drive/1l3SduTt0Vk3tZ7tQb06LfYI8r8SlNtuf?usp=sharing",
       },
       atAGlance: {
-        projectType: "Data Visualization Pipeline",
+        // REVISI 2: Menghindari kata "Pipeline" yang terkesan seperti ETL otomatis
+        projectType: "Data Preparation & Exploratory Analysis",
         duration: "1 Month",
         role: "Data Analyst Contributor",
         teamSize: "Team",
         status: "Academic",
         primaryTechnologies: ["Python", "Pandas", "Seaborn"],
-        keyFeatures: ["Data Cleaning", "Basic EDA Visualization", "Missing Value Handling"],
-        biggestChallenge: "Membersihkan dataset mentah yang kotor agar siap diproses oleh anggota tim lain untuk dashboard akhir.",
-        biggestImpact: "Menyediakan fondasi data yang bersih (cleaned dataframe) dan visualisasi tren awal yang valid.",
-        whatILearned: "Pekerjaan 'kotor' seperti data cleaning adalah fondasi terpenting sebelum dashboard apapun bisa dibangun."
+        keyFeatures: ["Data Cleaning", "Missing Value Handling", "Categorical Mapping", "Basic EDA Visualization"],
+        biggestChallenge: "Membersihkan dataset mentah yang kotor dan tidak konsisten agar siap diproses oleh anggota tim lain untuk visualisasi akhir.",
+        biggestImpact: "Menyediakan dataframe yang bersih (cleaned data) dan notebook yang terdokumentasi dengan baik sebagai fondasi analisis tim.",
+        whatILearned: "Pekerjaan 'kotor' seperti data cleaning adalah fondasi terpenting. Algoritma atau grafik sehebat apapun tidak akan valid jika datanya berantakan."
       },
       context: {
-        businessContext: "Analisis historis dataset kepolisian untuk memahami tren waktu dan lokasi kejadian, guna membantu alokasi sumber daya secara konseptual.",
+        businessContext: "Analisis historis dataset kepolisian untuk memahami tren waktu dan lokasi kejadian, guna membantu alokasi sumber daya secara konseptual. Proyek ini dijalankan secara kolaboratif, di mana bagian saya berfokus pada integritas data dasar.",
         businessValues: [
-          "Membantu mengidentifikasi area yang memerlukan alokasi pengamanan ekstra.",
-          "Mengubah baris data mentah menjadi format yang bisa diinterpretasi."
+          "Membersihkan baris data mentah menjadi format relasional yang bisa diinterpretasi.",
+          "Membantu mengidentifikasi area yang memerlukan alokasi pengamanan ekstra melalui visualisasi dasar."
         ],
         problemStatements: [
-          "Dataset kepolisian memiliki banyak nilai kosong (missing values) dan inkonsistensi pencatatan."
+          "Dataset kepolisian memiliki puluhan ribu baris dengan banyak nilai kosong (missing values) dan inkonsistensi pencatatan kategori."
         ],
         objectives: [
-          "Melakukan proses pembersihan data (Data Cleaning) secara komprehensif.",
-          "Menyiapkan visualisasi dasar sebagai bahan eksplorasi tim."
+          "Melakukan pembersihan data (Data Wrangling/Cleaning) secara komprehensif menggunakan Python.",
+          "Menyusun notebook riset (Colab) yang rapi, *reproducible* (bisa dijalankan ulang), dan mudah dipahami oleh anggota tim lain."
         ]
       },
       systemDesign: {
-        modules: ["Data Ingestion", "Data Cleaning", "Basic Visual Rendering"],
+        // REVISI 3: Menyesuaikan terminologi dengan lingkungan Google Colab
+        modules: ["Data Ingestion", "Data Cleaning", "Feature Mapping", "Basic Visual Rendering"],
         majorFeatures: [
-          "Handling Missing Values",
+          "Handling Missing Values & Outliers",
           "Crime Category Classification",
           "Temporal Trend Plotting"
         ],
-        architectureNarrative: "Pemrosesan berbasis Notebook Python menggunakan ekosistem Pandas untuk membersihkan dan menyiapkan data tabular.",
-        databaseDesignNarrative: "Dataframe in-memory processing."
+        architectureNarrative: "Pemrosesan data sepenuhnya dilakukan di lingkungan komputasi awan (Google Colab). Langkah-langkah pembersihan didokumentasikan selangkah demi selangkah menggunakan Markdown di dalam notebook, memanfaatkan ekosistem Pandas untuk transformasi data tabular.",
+        databaseDesignNarrative: "Pemrosesan in-memory dataframe (Pandas). Dataset diubah bentuknya dari flat CSV menjadi struktur terindeks yang siap diagregasi."
       },
       engineering: {
-        requirementGathering: "Fokus kontribusi saya adalah memastikan integritas data terjamin sebelum masuk ke fase dashboarding yang lebih kompleks.",
+        requirementGathering: "Fokus kontribusi saya adalah memastikan integritas data terjamin. Saya membaca dokumentasi dataset kepolisian secara manual untuk memahami makna setiap kolom sebelum mulai menghapus atau memodifikasi data yang hilang.",
         techDecisions: [
           {
+            technology: "Google Colab / Jupyter",
+            reason: "Lingkungan ideal untuk EDA kolaboratif karena menggabungkan dokumentasi (Markdown), eksekusi kode (Python), dan hasil visual (Plot) dalam satu file yang sama."
+          },
+          {
             technology: "Pandas",
-            reason: "Sangat efisien untuk memfilter dan memanipulasi baris data tabular skala menengah."
+            reason: "Sangat efisien untuk memfilter, mengagregasi, dan memanipulasi baris data tabular skala menengah."
           }
         ],
         challengesAndSolutions: [
           {
-            challenge: "Banyaknya kode kejahatan (Crime Codes) yang sangat spesifik dan redundan.",
-            solution: "Menyusun mapping dictionary untuk mengelompokkannya ke dalam kategori kejahatan makro agar visualisasi lebih bersih."
+            challenge: "Banyaknya kode kejahatan (Crime Codes) yang sangat spesifik dan redundan (berulang).",
+            solution: "Menyusun mapping dictionary dengan Python untuk mengelompokkannya ke dalam kategori kejahatan makro (misal: 'Theft', 'Assault') agar visualisasi akhir lebih bersih dan bermakna."
           }
         ]
       },
       outcomes: {
-        businessResults: "Dataframe yang telah dibersihkan berhasil digunakan oleh tim untuk membangun visualisasi akhir mengenai area hotspot.",
+        businessResults: "Dataframe yang telah dibersihkan di dalam notebook berhasil diekspor dan digunakan oleh tim untuk membangun tahap visualisasi akhir.",
         impactMetrics: [
-          { metric: "Data Format", before: "Raw CSV with anomalies", after: "Cleaned Dataframe ready for Viz" }
+          { metric: "Data Format", before: "Raw CSV dengan anomali", after: "Cleaned Dataframe yang siap untuk divisualisasikan" },
+          { metric: "Documentation", before: "Data mentah tanpa konteks", after: "Notebook Colab dengan penjelasan per baris kode" }
         ],
-        reflection: "Sebagai kontributor dalam pembersihan data, saya belajar bahwa mengkomunikasikan inkonsistensi data kepada tim jauh lebih krusial daripada langsung melompat membuat grafik visual."
+        reflection: "Sebagai kontributor dalam pembersihan data, saya belajar bahwa mengkomunikasikan inkonsistensi data serta memberikan dokumentasi kode yang rapi jauh lebih krusial daripada langsung melompat membuat grafik visual."
       }
     },
 
@@ -604,24 +612,25 @@ export const portfolioData = {
         primaryTechnologies: ["React", "Next.js", "Sanity", "Stripe API"],
         keyFeatures: ["Booking Engine", "Admin Dashboard (CRUD)", "Stripe Payment", "Dark Mode", "Advanced Filtering"],
         biggestChallenge: "Mensinkronisasikan 11 kepala developer dengan kemampuan teknis berbeda agar tetap selaras dengan Product Backlog dan tenggat waktu rilis Sprint.",
-        biggestImpact: "Berhasil mendelegasikan dan mengawal eksekusi seluruh Product Backlog dalam 3 Sprint terstruktur, menghasilkan aplikasi full-stack yang terintegrasi secara fungsional.",
+        biggestImpact: "Berhasil memimpin eksekusi seluruh Product Backlog dalam 3 Sprint, menghasilkan purwarupa (prototype) full-stack yang berhasil mendemonstrasikan alur pemesanan end-to-end.",
         whatILearned: "Keberhasilan sebuah software tidak hanya bergantung pada teknologi yang digunakan, melainkan pada kejelasan komunikasi, pembagian tugas yang tepat, dan disiplin metodologi (Agile/Scrum)."
       },
       context: {
-        businessContext: "Industri perhotelan modern membutuhkan sistem yang tidak hanya mengelola inventaris kamar (sisi Admin) tetapi juga memberikan pengalaman pemesanan yang mulus bagi tamu (sisi Klien). Proyek ini mensimulasikan pengembangan produk komersial tersebut dari nol.",
+        businessContext: "Proyek akademik ini dirancang untuk mensimulasikan pengembangan produk komersial dari nol. Tujuannya adalah membangun sebuah Proof of Concept (PoC) sistem yang tidak hanya mengelola inventaris kamar (Admin) tetapi juga memberikan pengalaman pemesanan yang mulus bagi pengguna (Klien).",
+        
         businessValues: [
-          "Mendigitalisasi seluruh alur reservasi kamar dan layanan tambahan (laundry, meals, dll).",
-          "Menyediakan dashboard administratif untuk pemantauan ketersediaan kamar secara real-time.",
-          "Menerapkan sistem pembayaran terintegrasi untuk konfirmasi instan."
+          "Membangun prototipe alur reservasi kamar dan layanan tambahan yang interaktif.",
+          "Menyediakan dashboard administratif dasar untuk simulasi pemantauan ketersediaan kamar.",
+          "Mendemonstrasikan integrasi sistem pembayaran eksternal (Payment Gateway) pada lingkungan pengujian (test environment)."
         ],
         problemStatements: [
-          "Bagaimana membangun sistem reservasi end-to-end dengan fitur yang kompleks (autentikasi, CMS, payment gateway) dalam waktu akademik yang terbatas?",
+          "Bagaimana membangun prototipe sistem reservasi end-to-end dengan integrasi pihak ketiga (CMS & Payment Gateway) dalam waktu akademik yang terbatas?",
           "Bagaimana mengelola dan memastikan 11 anggota tim developer dapat bekerja secara paralel tanpa saling menimpa kode (code conflicts) atau kehilangan arah?"
         ],
         objectives: [
           "Menerapkan kerangka kerja Scrum secara disiplin (Daily Stand-up, Sprint Review) untuk menjaga ritme kerja tim.",
-          "Mengembangkan aplikasi berbasis JAMstack (Next.js + Sanity) untuk performa dan skalabilitas tinggi.",
-          "Mengamankan jalur transaksi digital menggunakan ekosistem Stripe."
+          "Mengembangkan aplikasi berbasis JAMstack (Next.js + Sanity) untuk pemisahan frontend dan backend.",
+          "Mengintegrasikan jalur transaksi digital menggunakan mode pengujian (test mode) Stripe API."
         ]
       },
       systemDesign: {
@@ -665,11 +674,12 @@ export const portfolioData = {
         ]
       },
       outcomes: {
-        businessResults: "Tim berhasil mendemonstrasikan sebuah Minimum Viable Product (MVP) sistem manajemen hotel yang stabil, aman, dan siap pakai. Proyek ini membuktikan bahwa manajemen operasional yang baik sama pentingnya dengan kode yang efisien.",
+        businessResults: "Tim berhasil mendemonstrasikan sebuah Minimum Viable Product (MVP) yang fungsional. Proyek ini membuktikan bahwa dengan manajemen Agile yang disiplin, tim berskala besar dapat mengantarkan (deliver) fitur-fitur kompleks tepat waktu tanpa hambatan kolaborasi yang fatal.",
+        
         impactMetrics: [
-          { metric: "Project Delivery", before: "Ide konseptual berskala besar", after: "Dirilis tepat waktu dalam 3 Sprint" },
-          { metric: "Team Velocity", before: "Risiko bottleneck kerja karena 11 anggota", after: "Pendelegasian tugas merata berdasarkan sprint backlog" },
-          { metric: "Technical Implementation", before: "Data statis", after: "Fully integrated Headless CMS & Live Payment Gateway" }
+          { metric: "Project Delivery", before: "Ide konseptual", after: "Prototipe fungsional dirilis dalam 3 Sprint" },
+          { metric: "Team Velocity", before: "Risiko bottleneck karena 11 anggota", after: "Pendelegasian tugas merata via Sprint Backlog" },
+          { metric: "Technical Implementation", before: "Mock data statis", after: "Terintegrasi dengan Headless CMS (Sanity) & Stripe (Test Mode)" }
         ],
         reflection: "Menjadi Scrum Master menyadarkan saya bahwa hambatan terbesar dalam rekayasa perangkat lunak berskala menengah-besar bukanlah pada penulisan sintaks kode, melainkan pada manajemen manusia, sinkronisasi ekspektasi, dan memastikan seluruh tim berjalan ke arah arsitektur yang sama."
       }
