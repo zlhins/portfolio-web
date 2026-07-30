@@ -522,7 +522,7 @@ export const portfolioData = {
         category: "Data Visualization & EDA",
         technologies: ["Python", "Pandas", "Matplotlib"],
         shortDescription: "Eksplorasi Data Analisis (EDA) kolaboratif untuk memetakan tren temporal dan spasial dari dataset kriminalitas kota Los Angeles.",
-        liveUrl: "https://colab.research.google.com/drive/1smuPRnKNXHipa5OueG4E8vCROPTTfZLD?usp=sharing",
+        liveUrl: "https://colab.research.google.com/drive/1l3SduTt0Vk3tZ7tQb06LfYI8r8SlNtuf?usp=sharing",
       },
       atAGlance: {
         projectType: "Data Visualization Pipeline",
