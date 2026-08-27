@@ -4,7 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Zulhi | Informatics Graduate & Technology Problem Solver",
+  title: "Siti Zulhi Nirma Saidah | Informatics Graduate & Technology Problem Solver",
   description: "Building practical software solutions through structured problem solving, web development, and data-driven thinking.",
 };
 
