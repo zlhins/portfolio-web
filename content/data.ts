@@ -518,77 +518,87 @@ export const portfolioData = {
       id: "la-crime-dashboard",
       isFeatured: true,
       meta: {
-        // REVISI 1: Menghilangkan kata "Dashboard" dan menggantinya dengan "EDA & Data Wrangling"
-        title: "LA Crime Data Wrangling & EDA", 
-        category: "Data Visualization & EDA",
-        technologies: ["Python", "Pandas", "Matplotlib", "Jupyter/Colab"],
-        shortDescription: "Eksplorasi Data Analisis (EDA) kolaboratif berbasis notebook untuk memetakan tren temporal dan spasial dari dataset kriminalitas kota Los Angeles.",
-        liveUrl: "https://colab.research.google.com/drive/1l3SduTt0Vk3tZ7tQb06LfYI8r8SlNtuf?usp=sharing",
+        title: "LA Crime Analytics & Interactive Dashboard",
+        category: "Data Visualization & Web App",
+        technologies: ["Python", "Pandas", "Streamlit", "Matplotlib"],
+        shortDescription: "Pengembangan dashboard interaktif menggunakan Streamlit untuk memvisualisasikan tren temporal dan memetakan hotspot spasial dari dataset kriminalitas kota Los Angeles secara dinamis.",
+        liveUrl: "https://la-crime-dashboard.streamlit.app/", 
+        // Jangan lupa tambahkan gambar screenshot Streamlit Anda ke folder public/images/
+        demoImages: [
+          "/images/la-crime-1.png", 
+          "/images/la-crime-2.png",
+          "/images/la-crime-3.png",
+          "/images/la-crime-4.png",
+          "/images/la-crime-5.png",
+          "/images/la-crime-6.png",
+        ],
       },
       atAGlance: {
-        // REVISI 2: Menghindari kata "Pipeline" yang terkesan seperti ETL otomatis
-        projectType: "Data Preparation & Exploratory Analysis",
-        duration: "1 Month",
-        role: "Data Analyst Contributor",
+        projectType: "Data Visualization & Dashboard",
+        duration: "1+ Months",
+        role: "Data Analyst & Dashboard Developer",
         teamSize: "Team",
         status: "Academic",
-        primaryTechnologies: ["Python", "Pandas", "Seaborn"],
-        keyFeatures: ["Data Cleaning", "Missing Value Handling", "Categorical Mapping", "Basic EDA Visualization"],
-        biggestChallenge: "Membersihkan dataset mentah yang kotor dan tidak konsisten agar siap diproses oleh anggota tim lain untuk visualisasi akhir.",
-        biggestImpact: "Menyediakan dataframe yang bersih (cleaned data) dan notebook yang terdokumentasi dengan baik sebagai fondasi analisis tim.",
-        whatILearned: "Pekerjaan 'kotor' seperti data cleaning adalah fondasi terpenting. Algoritma atau grafik sehebat apapun tidak akan valid jika datanya berantakan."
+        primaryTechnologies: ["Python", "Pandas", "Streamlit"],
+        keyFeatures: ["Interactive UI", "Temporal Trend Filtering", "Crime Category Breakdown", "Cleaned Data Pipeline"],
+        biggestChallenge: "Menerjemahkan puluhan ribu baris data kepolisian hasil pembersihan (data wrangling) menjadi visualisasi interaktif yang responsif di lingkungan web menggunakan Streamlit.",
+        biggestImpact: "Berhasil mentransformasi sekumpulan data tabular mentah menjadi sebuah aplikasi web dinamis yang memungkinkan pengguna untuk memfilter pola kejahatan secara instan.",
+        whatILearned: "Sebuah analisis data memberikan nilai maksimal ketika disajikan melalui antarmuka interaktif, karena memungkinkan audiens untuk menggali wawasan mereka sendiri."
       },
       context: {
-        businessContext: "Analisis historis dataset kepolisian untuk memahami tren waktu dan lokasi kejadian, guna membantu alokasi sumber daya secara konseptual. Proyek ini dijalankan secara kolaboratif, di mana bagian saya berfokus pada integritas data dasar.",
+        businessContext: "Proyek akademik kolaboratif ini berfokus pada pembersihan dan analisis dataset kepolisian historis. Sebagai puncaknya, hasil riset data tersebut diwujudkan ke dalam bentuk antarmuka dashboard interaktif agar metrik, tren waktu, dan lokasi kejadian dapat dieksplorasi secara dinamis oleh pengguna.",
         businessValues: [
-          "Membersihkan baris data mentah menjadi format relasional yang bisa diinterpretasi.",
-          "Membantu mengidentifikasi area yang memerlukan alokasi pengamanan ekstra melalui visualisasi dasar."
+          "Memberikan wawasan visual instan mengenai area (hotspots) yang memerlukan alokasi pengamanan ekstra.",
+          "Menyederhanakan eksplorasi data yang masif menjadi metrik visual web yang intuitif.",
+          "Mendukung pengambilan keputusan berbasis bukti visual (visual evidence-based decision making)."
         ],
         problemStatements: [
-          "Dataset kepolisian memiliki puluhan ribu baris dengan banyak nilai kosong (missing values) dan inkonsistensi pencatatan kategori."
+          "Laporan statis hasil pembersihan data tidak memungkinkan pengguna untuk memfilter rentang waktu atau jenis kejahatan sesuai kebutuhan mereka.",
+          "Dataset kepolisian berukuran sangat besar sehingga sulit diinterpretasikan tanpa representasi visual yang saling terhubung di satu layar."
         ],
         objectives: [
-          "Melakukan pembersihan data (Data Wrangling/Cleaning) secara komprehensif menggunakan Python.",
-          "Menyusun notebook riset (Colab) yang rapi, *reproducible* (bisa dijalankan ulang), dan mudah dipahami oleh anggota tim lain."
+          "Melakukan pembersihan data (Data Wrangling) secara komprehensif sebagai bagian dari kerja tim.",
+          "Membangun antarmuka dashboard menggunakan Streamlit untuk menyajikan grafik dan peta secara dinamis.",
+          "Memastikan performa rendering web tetap stabil saat memproses dataset dalam jumlah besar."
         ]
       },
       systemDesign: {
-        // REVISI 3: Menyesuaikan terminologi dengan lingkungan Google Colab
-        modules: ["Data Ingestion", "Data Cleaning", "Feature Mapping", "Basic Visual Rendering"],
+        modules: ["Data Processing Pipeline", "Streamlit UI/Frontend", "Spatial Visualization", "Temporal Filtering"],
         majorFeatures: [
-          "Handling Missing Values & Outliers",
-          "Crime Category Classification",
-          "Temporal Trend Plotting"
+          "Dynamic Crime Hotspot Mapping",
+          "Time-Series Trend Analysis",
+          "Interactive Filters (Category, Time, Location)"
         ],
-        architectureNarrative: "Pemrosesan data sepenuhnya dilakukan di lingkungan komputasi awan (Google Colab). Langkah-langkah pembersihan didokumentasikan selangkah demi selangkah menggunakan Markdown di dalam notebook, memanfaatkan ekosistem Pandas untuk transformasi data tabular.",
-        databaseDesignNarrative: "Pemrosesan in-memory dataframe (Pandas). Dataset diubah bentuknya dari flat CSV menjadi struktur terindeks yang siap diagregasi."
+        architectureNarrative: "Sistem dibangun dengan pendekatan dua tahap: (1) Pembersihan dan agregasi data mentah secara kolaboratif menggunakan ekosistem Pandas untuk memastikan integritas metrik, dilanjutkan dengan (2) Pengembangan antarmuka web interaktif (frontend) menggunakan Streamlit yang secara langsung merender dataframe bersih tersebut ke layar pengguna.",
+        databaseDesignNarrative: "Data disajikan melalui dataframe (Pandas) yang telah diagregasi (pre-aggregated). Desain in-memory ini krusial untuk mempercepat waktu muat (load time) saat pengguna menerapkan filter dinamis pada Streamlit."
       },
       engineering: {
-        requirementGathering: "Fokus kontribusi saya adalah memastikan integritas data terjamin. Saya membaca dokumentasi dataset kepolisian secara manual untuk memahami makna setiap kolom sebelum mulai menghapus atau memodifikasi data yang hilang.",
+        requirementGathering: "Fase awal proyek berfokus pada integritas data dasar bersama tim. Setelah dataset bersih (cleaned data) didapatkan, proses bergeser pada rekayasa User Experience (UX): merancang tata letak filter, peta, dan grafik yang paling relevan untuk di-deploy ke web.",
         techDecisions: [
           {
-            technology: "Google Colab / Jupyter",
-            reason: "Lingkungan ideal untuk EDA kolaboratif karena menggabungkan dokumentasi (Markdown), eksekusi kode (Python), dan hasil visual (Plot) dalam satu file yang sama."
+            technology: "Streamlit", 
+            reason: "Framework yang sangat ideal untuk menjembatani pipeline pemrosesan data murni (Python) menjadi antarmuka web interaktif secara instan, mengeliminasi kebutuhan untuk membangun backend/frontend terpisah."
           },
           {
-            technology: "Pandas",
-            reason: "Sangat efisien untuk memfilter, mengagregasi, dan memanipulasi baris data tabular skala menengah."
+            technology: "Pandas (Data Pre-processing)",
+            reason: "Digunakan di belakang layar untuk memanipulasi dan mengagregasi baris data sebelum dirender oleh komponen Streamlit, menjaga performa antarmuka agar tetap responsif."
           }
         ],
         challengesAndSolutions: [
           {
-            challenge: "Banyaknya kode kejahatan (Crime Codes) yang sangat spesifik dan redundan (berulang).",
-            solution: "Menyusun mapping dictionary dengan Python untuk mengelompokkannya ke dalam kategori kejahatan makro (misal: 'Theft', 'Assault') agar visualisasi akhir lebih bersih dan bermakna."
+            challenge: "Kepadatan Visual (Cluttered Data): Menampilkan data kriminalitas dalam jumlah masif membuat visualisasi menjadi lambat dan sulit dibaca.",
+            solution: "Menerapkan agregasi tingkat tinggi pada script Streamlit serta memanfaatkan caching (@st.cache_data) agar komputasi filter UI berjalan jauh lebih ringan."
           }
         ]
       },
       outcomes: {
-        businessResults: "Dataframe yang telah dibersihkan di dalam notebook berhasil diekspor dan digunakan oleh tim untuk membangun tahap visualisasi akhir.",
+        businessResults: "Proyek sukses berevolusi dari sekadar kolaborasi pembersihan data menjadi sebuah aplikasi dashboard analitik yang sepenuhnya fungsional. Antarmuka ini membuktikan kemampuan penting dalam mentransisikan data di backend menjadi sajian visual di frontend.",
         impactMetrics: [
-          { metric: "Data Format", before: "Raw CSV dengan anomali", after: "Cleaned Dataframe yang siap untuk divisualisasikan" },
-          { metric: "Documentation", before: "Data mentah tanpa konteks", after: "Notebook Colab dengan penjelasan per baris kode" }
+          { metric: "Data Accessibility", before: "Statis dalam Jupyter Notebook", after: "Aplikasi web interaktif (Streamlit Cloud)" },
+          { metric: "User Experience", before: "Membutuhkan pemahaman struktur data", after: "Eksplorasi instan via UI interaktif" },
+          { metric: "Data Pipeline", before: "Raw CSV Files", after: "Cleaned Data & Streamlit Integration" }
         ],
-        reflection: "Sebagai kontributor dalam pembersihan data, saya belajar bahwa mengkomunikasikan inkonsistensi data serta memberikan dokumentasi kode yang rapi jauh lebih krusial daripada langsung melompat membuat grafik visual."
+        reflection: "Proyek ini mengajarkan saya bahwa kemampuan merepresentasikan data melalui antarmuka interaktif (UI/UX) sama krusialnya dengan ketelitian saat membersihkan anomali data di belakang layar."
       }
     },
 
