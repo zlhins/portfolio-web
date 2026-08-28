@@ -435,85 +435,106 @@ export const portfolioData = {
         reflection: "Melalui proyek ini, saya menyadari bahwa nilai terbesar dari sebuah software bukanlah pada seberapa kompleks teknologinya, melainkan pada kemampuannya mengembalikan waktu yang hilang akibat pekerjaan repetitif, sehingga pengguna bisa fokus pada tugas operasional yang lebih penting."
       }
     },
+
     {
       id: "krl-criticality",
       isFeatured: true,
       meta: {
-        title: "Urban Transit Resilience: KRL Criticality Analysis",
-        category: "Data Analytics & ML",
-        technologies: ["Python", "NetworkX", "LightGBM", "Pandas"],
-        shortDescription: "Evaluasi kerentanan 94 active stations in DAOP 1 menggunakan pendekatan Graph Embedding dan algoritma Machine Learning prediktif.",
-        liveUrl: "https://colab.research.google.com/drive/1RbzrzWXb5XSt8vzv6-M8I4DhT8TBoGJG?usp=sharing",  
+        title: "KRL Network Criticality Analysis & Dashboard",
+        category: "Data Analytics, ML & Web App",
+        technologies: ["Python", "NetworkX", "LightGBM", "Streamlit", "Pandas"],
+        shortDescription: "Evaluasi kerentanan 94 stasiun KRL di DAOP 1 menggunakan pendekatan Graph Embedding dan algoritma Machine Learning prediktif, disajikan dalam antarmuka web interaktif.",
+        liveUrl: "https://krl-kritis-dashboard.streamlit.app/",  
+        // Karena sekarang berupa dashboard web, pamerkan antarmukanya di halaman utama
+        demoImages: [
+          "/images/krl-1.png", 
+          "/images/krl-2.png",
+          "/images/krl-3.png",
+          "/images/krl-4.png",
+          "/images/krl-5.png",
+          "/images/krl-6.png",
+        ],
       },
       atAGlance: {
-        projectType: "Data Pipeline & Predictive Modeling",
+        projectType: "End-to-End Predictive Modeling & Dashboard",
         duration: "2025 - 2026",
-        role: "Researcher & Data Analyst",
+        role: "Researcher & Developer",
         teamSize: "Individual",
         status: "Academic",
-        primaryTechnologies: ["Python", "Graph Theory", "LightGBM"],
-        keyFeatures: ["Data Wrangling", "Graph Feature Extraction", "Predictive Modeling"],
-        biggestChallenge: "Membersihkan data jadwal operasional yang berantakan menjadi struktur relasional node-edge yang kohesif.",
-        biggestImpact: "Menghasilkan kerangka evaluasi berbasis topologi jaringan, bukan sekadar metrik volume penumpang tradisional.",
-        whatILearned: "Dalam machine learning, algoritma tidak akan berguna jika kualitas data (Data Quality) dan feature engineering tidak selaras dengan pemahaman domain."
+        primaryTechnologies: ["Python", "Graph Theory", "LightGBM", "Streamlit"],
+        keyFeatures: ["Data Wrangling", "Graph Feature Extraction", "Predictive Modeling", "Interactive Web Dashboard"],
+        biggestChallenge: "Membersihkan data jadwal operasional yang berantakan menjadi struktur relasional node-edge yang kohesif, lalu membungkus kerumitan model tersebut ke dalam UI yang ramah pengguna.",
+        biggestImpact: "Menghasilkan kerangka evaluasi berbasis topologi jaringan yang tidak hanya berhenti sebagai riset di atas kertas, tetapi beroperasi sebagai alat visualisasi interaktif.",
+        whatILearned: "Dalam machine learning, algoritma tidak akan berguna jika kualitas data buruk (Garbage In, Garbage Out). Dan riset yang bagus akan kehilangan potensinya jika tidak disajikan lewat antarmuka yang bisa dieksplorasi pengguna."
       },
       context: {
-        businessContext: "Jaringan transportasi urban sering mengalami penundaan berantai (cascading delays) ketika satu simpul pusat mengalami kegagalan. Pendekatan manajemen konvensional seringkali hanya mengevaluasi berdasarkan kepadatan stasiun.",
+        businessContext: "Jaringan transportasi urban sering mengalami penundaan berantai (cascading delays) ketika satu simpul pusat mengalami kegagalan. Pendekatan manajemen konvensional seringkali hanya mengevaluasi berdasarkan kepadatan stasiun. Proyek skripsi ini bertujuan mengevaluasi hal tersebut secara topologis dan mewujudkannya dalam bentuk prototipe dashboard operasional.",
         businessValues: [
-          "Memberikan wawasan kuantitatif untuk prioritas pemeliharaan infrastruktur.",
+          "Memberikan wawasan kuantitatif untuk memprioritaskan pemeliharaan infrastruktur stasiun.",
           "Mencegah dampak eksponensial dari kegagalan satu stasiun terhadap jadwal rute lain.",
-          "Mendukung pengambilan keputusan berbasis data topologi struktural."
+          "Menyediakan alat bantu visual (dashboard) untuk mendukung pengambilan keputusan berbasis data topologi struktural."
         ],
         problemStatements: [
-          "Tingkat kepentingan stasiun tidak bisa hanya diukur dari volume penumpang.",
-          "Ketiadaan metrik kerentanan jaringan yang memperhitungkan struktur spasial.",
-          "Kesulitan dalam memetakan dampak delay yang merambat ke stasiun lain."
+          "Tingkat kepentingan (kritis) sebuah stasiun tidak bisa hanya diukur dari besaran volume penumpangnya.",
+          "Ketiadaan metrik kerentanan jaringan yang memperhitungkan struktur spasial jalur kereta.",
+          "Hasil riset dan model prediktif seringkali berupa kode mentah yang tidak bisa dibaca oleh pemangku kepentingan non-teknis."
         ],
         objectives: [
           "Memetakan ulang jadwal KRL operasional menjadi bentuk network graph yang terstruktur.",
-          "Menggabungkan metode teori graf dengan Machine Learning.",
-          "Memprediksi skor kerentanan (criticality score) untuk 94 active stations in DAOP 1."
+          "Menggabungkan metode teori graf dengan Machine Learning (Graph Embedding).",
+          "Mendeploy hasil prediksi (criticality score) untuk 94 stasiun DAOP 1 ke dalam dashboard web interaktif."
         ]
       },
       systemDesign: {
-        modules: ["Data Preprocessing", "Graph Construction", "Feature Extraction", "Model Training", "Evaluation"],
+        modules: ["Data Preprocessing", "Graph Construction", "Feature Extraction", "Model Training", "Web Deployment (Streamlit)"],
         majorFeatures: [
           "Timetable Parsing Script",
           "Graph Node-Edge Generator",
           "Node2Vec Embedding",
-          "Model Evaluation Metrics"
+          "Predictive Evaluation Metrics",
+          "Interactive Spatial Dashboard"
         ],
-        architectureNarrative: "Pipeline data dirancang dalam arsitektur linier: Data mentah tabular diproses menggunakan Pandas -> Dikonversi menjadi graf menggunakan NetworkX -> Fitur diekstraksi menggunakan Node2Vec -> Di-feed ke dalam model regresi LightGBM.",
-        databaseDesignNarrative: "Pergeseran paradigma desain data dari Relational Rows menjadi Edge-List (Stasiun Asal -> Stasiun Tujuan, Bobot Perjalanan) yang esensial untuk kalkulasi graf."
+        architectureNarrative: "Sistem dirancang sebagai pipeline data end-to-end: Data mentah tabular diproses menggunakan Pandas -> Dikonversi menjadi graf menggunakan NetworkX -> Fitur diekstraksi menggunakan Node2Vec -> Di-feed ke dalam model regresi LightGBM. Hasil inferensi akhir kemudian dihubungkan ke antarmuka Streamlit agar pengguna dapat melihat metrik kerentanan stasiun secara visual.",
+        databaseDesignNarrative: "Terjadi pergeseran paradigma desain data dari Relational Rows menjadi Edge-List (Stasiun Asal -> Stasiun Tujuan, Bobot Perjalanan) yang esensial untuk kalkulasi graf sebelum akhirnya dirender ke frontend."
       },
       engineering: {
-        requirementGathering: "Masalah utamanya dikerucutkan bukan pada 'stasiun mana yang paling sibuk', melainkan 'stasiun mana yang jika bermasalah akan paling berdampak pada jaringan secara keseluruhan'.",
+        requirementGathering: "Masalah utamanya dikerucutkan bukan pada 'stasiun mana yang paling sibuk', melainkan 'stasiun mana yang jika bermasalah akan paling berdampak pada jaringan secara keseluruhan'. Tantangan rekayasa terbesarnya adalah menerjemahkan logika graf matematis ini ke dalam aplikasi yang bisa berinteraksi dengan pengguna.",
         techDecisions: [
           {
             technology: "Graph Theory (NetworkX)",
-            reason: "Struktur matematis yang paling akurat untuk merepresentasikan hubungan spasial dan ketergantungan antar stasiun kereta api."
+            reason: "Struktur matematis yang paling akurat untuk merepresentasikan hubungan spasial dan ketergantungan (dependency) antar stasiun kereta api."
           },
           {
             technology: "LightGBM",
-            reason: "Cepat, ramah memori, dan efisien dalam menangani fitur berbentuk tabular dari hasil ekstraksi graf."
+            reason: "Cepat, ramah memori, dan sangat efisien dalam menangani fitur berbentuk tabular dari hasil ekstraksi matriks graf (Node2Vec)."
+          },
+          {
+            technology: "Streamlit",
+            reason: "Dipilih sebagai framework deployment untuk menjembatani model Machine Learning murni dengan antarmuka web secara instan, mengubah riset akademik menjadi produk yang fungsional."
           }
         ],
         challengesAndSolutions: [
           {
             challenge: "Kualitas Data (Data Quality): Jadwal operasional mentah tidak memiliki identifikasi relasi edge yang jelas.",
-            solution: "Membuat script Python kustom dengan iterasi baris-demi-baris (row-wise iteration) untuk mem-parsing logika stasiun keberangkatan dan kedatangan berurutan menjadi edge."
+            solution: "Membuat script Python kustom dengan iterasi baris-demi-baris (row-wise iteration) untuk mem-parsing logika stasiun keberangkatan dan kedatangan berurutan menjadi edge-list yang valid."
+          },
+          {
+            challenge: "Menyajikan Data Kompleks (Deployment): Hasil evaluasi algoritma ML terlalu abstrak bagi pembaca awam.",
+            solution: "Membangun dashboard Streamlit sebagai layer presentasi akhir, memberikan visualisasi metrik secara interaktif alih-alih hanya mencetak angka di terminal."
           }
         ]
       },
       outcomes: {
-        businessResults: "Provides a quantitative assessment of network criticality that can support further analysis untuk mitigasi risiko penumpukan jadwal operasional.",
+        businessResults: "Riset ini sukses membuktikan kerentanan jaringan berbasis topologi dan berhasil di-deploy sebagai dashboard evaluasi kuantitatif yang dapat memandu strategi mitigasi penumpukan jadwal operasional.",
         impactMetrics: [
-          { metric: "Pendekatan Evaluasi", before: "Passenger Volume-based", after: "Structural Topology-based" },
-          { metric: "Bentuk Data Operasional", before: "Raw Tabular Timetable", after: "Structured Network Graph" }
+          { metric: "Metode Evaluasi", before: "Berdasarkan Volume Penumpang", after: "Berdasarkan Topologi Graf Struktural" },
+          { metric: "Bentuk Data Operasional", before: "Jadwal Tabular Mentah (Raw Timetable)", after: "Network Graph Terstruktur" },
+          { metric: "Bentuk Penyerahan (Delivery)", before: "Riset Kode / Jupyter Notebook", after: "Dashboard Aplikasi Web Interaktif" }
         ],
-        reflection: "Penelitian ini membuktikan prinsip 'Garbage in, garbage out'. Saya menghabiskan porsi waktu terbesar hanya untuk Data Wrangling dan Pipeline Construction."
+        reflection: "Penelitian ini membuktikan prinsip 'Garbage in, garbage out'. Saya menghabiskan porsi waktu terbesar hanya untuk memoles Data Wrangling. Namun pada akhirnya, mendeploy model ke dalam sebuah antarmuka web (dashboard) adalah langkah yang paling membuat riset ini terasa 'hidup' dan bermanfaat."
       }
     },
+
     {
       id: "la-crime-dashboard",
       isFeatured: true,
