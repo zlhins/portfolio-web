@@ -12,18 +12,17 @@ interface CaseStudyCardProps {
   technologies: string[];
   liveUrl?: string;
   repositoryUrl?: string;
-  demoImages?: string[]; // Berubah menjadi Array of Strings
+  demoImages?: string[];
 }
 
-export default function CaseStudyCard({ 
-  id, 
-  title, 
-  category, 
-  summary, 
-  technologies, 
-  liveUrl, 
-  repositoryUrl, 
-  demoImages 
+export default function CaseStudyCard({
+  id,
+  title,
+  category,
+  summary,
+  technologies,
+  liveUrl,
+  demoImages
 }: CaseStudyCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -35,15 +34,15 @@ export default function CaseStudyCard({
             {category}
           </span>
         </div>
-        
+
         <h3 className="text-xl font-medium text-zinc-950 mb-3 group-hover:text-blue-600 transition-colors">
           {title}
         </h3>
-        
+
         <p className="text-zinc-600 text-sm leading-relaxed mb-6">
           {summary}
         </p>
-        
+
         <div className="flex flex-wrap gap-2 mb-8">
           {technologies.map((item, index) => (
             <span key={index} className="text-xs text-zinc-500 border border-zinc-200 px-2 py-1 rounded-full">
@@ -66,16 +65,9 @@ export default function CaseStudyCard({
             </a>
           )}
 
-          {/* {repositoryUrl && (
-            <a href={repositoryUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-950 transition-colors">
-              <ExternalLink className="w-3.5 h-3.5" />
-              <span>Repository</span>
-            </a>
-          )} */}
-
           {/* Tombol Drawer (Hanya muncul jika ada array gambar) */}
           {demoImages && demoImages.length > 0 && (
-            <button 
+            <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-950 transition-colors ml-auto"
             >
@@ -90,35 +82,24 @@ export default function CaseStudyCard({
         {demoImages && demoImages.length > 0 && (
           <div className={`grid transition-all duration-500 ease-in-out ${isExpanded ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0"}`}>
             <div className="overflow-hidden">
-              
               {/* Wadah Horizontal Scroll */}
               <div className="flex gap-4 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {demoImages.map((img, index) => (
-                  <div 
-                    key={index} 
-                    // PENGGABUNGAN 3 ATURAN:
-                    // 1. HP: w-[85vw] h-auto 
-                    // 2. Tablet: sm:w-auto sm:h-[260px] md:h-[300px]
-                    // 3. Laptop: lg:min-w-[45%] lg:h-[300px] lg:flex lg:items-center lg:justify-center
+                  <div
+                    key={index}
                     className="relative bg-white rounded-xl border border-zinc-200/70 shadow-sm snap-start shrink-0 p-3 sm:p-4 w-[85vw] h-auto sm:w-auto sm:h-[260px] md:h-[300px] lg:min-w-[45%] lg:flex lg:items-center lg:justify-center"
                   >
-                    <img 
-                      src={img} 
+                    <img
+                      src={img}
                       alt={`${title} Interface ${index + 1}`}
-                      // PENYESUAIAN GAMBAR:
-                      // 1. HP: w-full h-auto (Menghindari blank atas/bawah)
-                      // 2. Tablet: sm:w-auto sm:h-full (Memeluk gambar kiri/kanan)
-                      // 3. Laptop: lg:w-full lg:h-full lg:object-top (Persis kode ideal Anda)
-                      className="grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer object-contain w-full h-auto sm:w-auto sm:h-full lg:w-full lg:h-full lg:object-top"
+                      className="transition-all duration-700 cursor-pointer object-contain w-full h-auto sm:w-auto sm:h-full lg:w-full lg:h-full lg:object-top"
                     />
                   </div>
                 ))}
               </div>
-              
             </div>
           </div>
         )}
-
       </div>
     </div>
   );

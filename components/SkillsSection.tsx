@@ -5,7 +5,7 @@ export default function SkillsSection() {
   const { skills } = portfolioData;
 
   return (
-    <section className="py-20 border-t border-zinc-100 bg-zinc-50/50">
+    <section id="skills" className="py-20 border-t border-zinc-100 bg-zinc-50/50">
       <Container>
         <div className="mb-12">
           <h2 className="text-sm font-semibold text-zinc-950 uppercase tracking-widest">
@@ -65,6 +65,24 @@ export default function SkillsSection() {
             </div>
           </div>
         </div>
+
+        {skills.languages && skills.languages.length > 0 && (
+          <div className="mt-12 pt-8 border-t border-zinc-200/70 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+            <h3 className="text-xs font-mono text-zinc-500 uppercase tracking-wider shrink-0">
+              Languages
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {skills.languages.map((lang, index) => (
+                <span
+                  key={index}
+                  className="text-xs text-zinc-600 bg-white border border-zinc-200 px-2.5 py-1 rounded"
+                >
+                  {lang}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </Container>
     </section>
   );

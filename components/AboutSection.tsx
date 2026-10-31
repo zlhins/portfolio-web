@@ -8,7 +8,7 @@ export default function AboutSection() {
   const { about } = portfolioData;
 
   return (
-    <section className="py-20 border-t border-zinc-100">
+    <section id="about" className="py-20 border-t border-zinc-100">
       <Container>
         <div className="mb-8">
           <h2 className="text-sm font-semibold text-zinc-950 uppercase tracking-widest">

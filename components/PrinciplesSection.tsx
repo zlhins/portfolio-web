@@ -6,7 +6,7 @@ import { portfolioData } from "@/content/data";
 
 export default function PrinciplesSection() {
   return (
-    <section id="about" className="py-20 border-t border-zinc-100">
+    <section id="principles" className="py-20 border-t border-zinc-100">
       <Container>
         <div className="mb-12">
           <h2 className="text-sm font-semibold text-zinc-950 uppercase tracking-widest mb-8">

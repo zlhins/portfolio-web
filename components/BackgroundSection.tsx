@@ -5,20 +5,19 @@ import { Container } from "./ui/Container";
 import { portfolioData } from "@/content/data";
 
 export default function BackgroundSection() {
-  const { education, certifications } = portfolioData;
+  const { education, certifications, achievements } = portfolioData;
 
   return (
     <section className="py-20 border-t border-zinc-100">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20">
-          
           {/* Label Kiri */}
           <div className="md:col-span-4">
             <h2 className="text-sm font-semibold text-zinc-950 uppercase tracking-widest">
               Background
             </h2>
           </div>
-          
+
           {/* Konten Kanan */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
@@ -27,7 +26,6 @@ export default function BackgroundSection() {
             transition={{ duration: 0.4 }}
             className="md:col-span-8 space-y-16"
           >
-            
             {/* Education Block */}
             <div>
               <h3 className="text-sm font-medium text-zinc-950 uppercase tracking-wider mb-6">
@@ -55,8 +53,8 @@ export default function BackgroundSection() {
               </h3>
               <div className="space-y-0 border-t border-zinc-100">
                 {certifications.map((cert) => (
-                  <div 
-                    key={cert.id} 
+                  <div
+                    key={cert.id}
                     className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-4 border-b border-zinc-100"
                   >
                     <h4 className="text-zinc-950 font-medium">{cert.name}</h4>
@@ -70,6 +68,29 @@ export default function BackgroundSection() {
               </div>
             </div>
 
+            {/* Achievements Block */}
+            {achievements && achievements.length > 0 && (
+              <div>
+                <h3 className="text-sm font-medium text-zinc-950 uppercase tracking-wider mb-6">
+                  Achievements
+                </h3>
+                <div className="space-y-0 border-t border-zinc-100">
+                  {achievements.map((ach) => (
+                    <div
+                      key={ach.id}
+                      className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-4 border-b border-zinc-100 gap-1 sm:gap-4"
+                    >
+                      <h4 className="text-zinc-950 font-medium">{ach.title}</h4>
+                      <div className="text-sm text-zinc-500 flex gap-2 mt-1 sm:mt-0 shrink-0">
+                        <span>{ach.event}</span>
+                        <span className="hidden sm:inline">•</span>
+                        <span>{ach.year}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
       </Container>
